@@ -1,0 +1,451 @@
+# 取引所・市場定義 (60+地域対応)
+# Yahoo Finance のティッカーサフィックスと代表銘柄リストを管理
+
+regions:
+
+  # ========== アジア太平洋 ==========
+
+  japan:
+    name: "日本"
+    suffix: ".T"
+    currency: "JPY"
+    exchange: "Tokyo Stock Exchange"
+    sample_tickers:
+      - "7203.T"   # トヨタ自動車
+      - "6758.T"   # ソニーグループ
+      - "9432.T"   # NTT
+      - "8306.T"   # 三菱UFJフィナンシャル
+      - "9984.T"   # ソフトバンクグループ
+      - "6861.T"   # キーエンス
+      - "4502.T"   # 武田薬品工業
+      - "8058.T"   # 三菱商事
+      - "7267.T"   # 本田技研工業
+      - "6954.T"   # ファナック
+      - "4063.T"   # 信越化学工業
+      - "9433.T"   # KDDI
+      - "8316.T"   # 三井住友フィナンシャルグループ
+      - "7741.T"   # HOYA
+      - "6367.T"   # ダイキン工業
+
+  japan_mothers:
+    name: "日本 (東証グロース)"
+    suffix: ".T"
+    currency: "JPY"
+    exchange: "TSE Growth"
+    sample_tickers:
+      - "4385.T"   # メルカリ
+      - "3923.T"   # ラクス
+      - "4565.T"   # そーせいグループ
+      - "3697.T"   # SHIFT
+      - "4478.T"   # freee
+
+  # ========== 米国 ==========
+
+  us:
+    name: "米国"
+    suffix: ""
+    currency: "USD"
+    exchange: "NYSE / NASDAQ"
+    sample_tickers:
+      - "AAPL"    # Apple
+      - "MSFT"    # Microsoft
+      - "GOOGL"   # Alphabet
+      - "AMZN"    # Amazon
+      - "NVDA"    # NVIDIA
+      - "META"    # Meta
+      - "BRK-B"   # Berkshire Hathaway
+      - "JPM"     # JPMorgan Chase
+      - "JNJ"     # Johnson & Johnson
+      - "XOM"     # ExxonMobil
+      - "V"       # Visa
+      - "PG"      # Procter & Gamble
+      - "UNH"     # UnitedHealth
+      - "HD"      # Home Depot
+      - "CVX"     # Chevron
+
+  # ========== 中国 ==========
+
+  china_a:
+    name: "中国 A株 (上海)"
+    suffix: ".SS"
+    currency: "CNY"
+    exchange: "Shanghai Stock Exchange"
+    sample_tickers:
+      - "600519.SS"  # 貴州茅台
+      - "601398.SS"  # 中国工商銀行
+      - "600036.SS"  # 招商銀行
+      - "601318.SS"  # 中国平安保険
+      - "600900.SS"  # 長江電力
+
+  china_b:
+    name: "中国 B株 (深圳)"
+    suffix: ".SZ"
+    currency: "CNY"
+    exchange: "Shenzhen Stock Exchange"
+    sample_tickers:
+      - "000858.SZ"  # 五糧液
+      - "002594.SZ"  # BYD
+      - "000333.SZ"  # 美的集団
+      - "300750.SZ"  # 寧徳時代
+      - "000001.SZ"  # 平安銀行
+
+  # ========== 香港 ==========
+
+  hong_kong:
+    name: "香港"
+    suffix: ".HK"
+    currency: "HKD"
+    exchange: "Hong Kong Stock Exchange"
+    sample_tickers:
+      - "0700.HK"   # テンセント
+      - "9988.HK"   # アリババ
+      - "1299.HK"   # AIA グループ
+      - "0005.HK"   # HSBC
+      - "0941.HK"   # 中国移動
+      - "2318.HK"   # 中国平安保険
+      - "3690.HK"   # 美団
+      - "1810.HK"   # 小米 (Xiaomi)
+      - "9618.HK"   # 京東 (JD.com)
+      - "0388.HK"   # 香港取引所
+
+  # ========== 韓国 ==========
+
+  korea:
+    name: "韓国"
+    suffix: ".KS"
+    currency: "KRW"
+    exchange: "Korea Stock Exchange"
+    sample_tickers:
+      - "005930.KS"  # サムスン電子
+      - "000660.KS"  # SKハイニックス
+      - "035420.KS"  # NAVER
+      - "051910.KS"  # LG化学
+      - "006400.KS"  # サムスンSDI
+      - "005380.KS"  # 現代自動車
+      - "035720.KS"  # カカオ
+      - "000270.KS"  # 起亜自動車
+      - "096770.KS"  # SKイノベーション
+
+  # ========== 台湾 ==========
+
+  taiwan:
+    name: "台湾"
+    suffix: ".TW"
+    currency: "TWD"
+    exchange: "Taiwan Stock Exchange"
+    sample_tickers:
+      - "2330.TW"   # TSMC (台積電)
+      - "2317.TW"   # 鴻海精密
+      - "2308.TW"   # 台達電子
+      - "2454.TW"   # 聯發科 (MediaTek)
+      - "2382.TW"   # 廣達電腦
+      - "2412.TW"   # 中華電信
+      - "2881.TW"   # 富邦金控
+      - "2882.TW"   # 國泰金控
+
+  # ========== 東南アジア ==========
+
+  singapore:
+    name: "シンガポール"
+    suffix: ".SI"
+    currency: "SGD"
+    exchange: "Singapore Exchange"
+    sample_tickers:
+      - "D05.SI"    # DBS Group
+      - "O39.SI"    # OCBC Bank
+      - "U11.SI"    # UOB
+      - "Z74.SI"    # SingTel
+      - "C6L.SI"    # Singapore Airlines
+      - "A17U.SI"   # CapitaLand Mall Trust
+
+  malaysia:
+    name: "マレーシア"
+    suffix: ".KL"
+    currency: "MYR"
+    exchange: "Bursa Malaysia"
+    sample_tickers:
+      - "1155.KL"   # Malayan Banking (Maybank)
+      - "1023.KL"   # CIMB Group
+      - "6947.KL"   # IHH Healthcare
+      - "5347.KL"   # Tenaga Nasional
+      - "4715.KL"   # Genting
+
+  indonesia:
+    name: "インドネシア"
+    suffix: ".JK"
+    currency: "IDR"
+    exchange: "Indonesia Stock Exchange"
+    sample_tickers:
+      - "BBCA.JK"   # Bank Central Asia
+      - "BBRI.JK"   # Bank Rakyat Indonesia
+      - "TLKM.JK"   # Telekomunikasi Indonesia
+      - "BMRI.JK"   # Bank Mandiri
+      - "ASII.JK"   # Astra International
+
+  thailand:
+    name: "タイ"
+    suffix: ".BK"
+    currency: "THB"
+    exchange: "Stock Exchange of Thailand"
+    sample_tickers:
+      - "PTT.BK"    # PTT
+      - "CPALL.BK"  # CP All
+      - "AOT.BK"    # Airports of Thailand
+      - "SCB.BK"    # Siam Commercial Bank
+      - "ADVANC.BK" # Advanced Info Service
+
+  philippines:
+    name: "フィリピン"
+    suffix: ".PS"
+    currency: "PHP"
+    exchange: "Philippine Stock Exchange"
+    sample_tickers:
+      - "SM.PS"     # SM Investments
+      - "BPI.PS"    # Bank of the Philippine Islands
+      - "ALI.PS"    # Ayala Land
+      - "TEL.PS"    # PLDT
+
+  vietnam:
+    name: "ベトナム"
+    suffix: ".VN"
+    currency: "VND"
+    exchange: "Ho Chi Minh Stock Exchange"
+    sample_tickers:
+      - "VIC.VN"    # Vingroup
+      - "VHM.VN"    # Vinhomes
+      - "VNM.VN"    # Vinamilk
+
+  # ========== インド ==========
+
+  india_nse:
+    name: "インド (NSE)"
+    suffix: ".NS"
+    currency: "INR"
+    exchange: "National Stock Exchange of India"
+    sample_tickers:
+      - "RELIANCE.NS"    # Reliance Industries
+      - "TCS.NS"         # Tata Consultancy Services
+      - "HDFCBANK.NS"    # HDFC Bank
+      - "INFY.NS"        # Infosys
+      - "HINDUNILVR.NS"  # Hindustan Unilever
+      - "ICICIBANK.NS"   # ICICI Bank
+      - "SBIN.NS"        # State Bank of India
+      - "BAJFINANCE.NS"  # Bajaj Finance
+      - "KOTAKBANK.NS"   # Kotak Mahindra Bank
+      - "WIPRO.NS"       # Wipro
+
+  india_bse:
+    name: "インド (BSE)"
+    suffix: ".BO"
+    currency: "INR"
+    exchange: "Bombay Stock Exchange"
+    sample_tickers:
+      - "500325.BO"   # Reliance Industries
+      - "500570.BO"   # Tata Motors
+      - "500010.BO"   # HDFC Bank
+
+  # ========== 欧州 ==========
+
+  uk:
+    name: "英国"
+    suffix: ".L"
+    currency: "GBP"
+    exchange: "London Stock Exchange"
+    sample_tickers:
+      - "SHEL.L"    # Shell
+      - "AZN.L"     # AstraZeneca
+      - "HSBA.L"    # HSBC
+      - "ULVR.L"    # Unilever
+      - "BP.L"      # BP
+      - "RIO.L"     # Rio Tinto
+      - "GSK.L"     # GSK
+      - "BATS.L"    # British American Tobacco
+      - "GLEN.L"    # Glencore
+      - "DGE.L"     # Diageo
+
+  germany:
+    name: "ドイツ"
+    suffix: ".DE"
+    currency: "EUR"
+    exchange: "Frankfurt Stock Exchange (XETRA)"
+    sample_tickers:
+      - "SAP.DE"    # SAP
+      - "SIE.DE"    # Siemens
+      - "ALV.DE"    # Allianz
+      - "BAYN.DE"   # Bayer
+      - "BMW.DE"    # BMW
+      - "VOW3.DE"   # Volkswagen
+      - "DBK.DE"    # Deutsche Bank
+      - "MRK.DE"    # Merck
+      - "EOAN.DE"   # E.ON
+
+  france:
+    name: "フランス"
+    suffix: ".PA"
+    currency: "EUR"
+    exchange: "Euronext Paris"
+    sample_tickers:
+      - "MC.PA"     # LVMH
+      - "OR.PA"     # L'Oréal
+      - "SAN.PA"    # Sanofi
+      - "TTE.PA"    # TotalEnergies
+      - "AIR.PA"    # Airbus
+      - "BNP.PA"    # BNP Paribas
+      - "RI.PA"     # Pernod Ricard
+
+  switzerland:
+    name: "スイス"
+    suffix: ".SW"
+    currency: "CHF"
+    exchange: "SIX Swiss Exchange"
+    sample_tickers:
+      - "NESN.SW"   # Nestlé
+      - "NOVN.SW"   # Novartis
+      - "ROG.SW"    # Roche
+      - "UBSG.SW"   # UBS
+      - "ZURN.SW"   # Zurich Insurance
+      - "ABBN.SW"   # ABB
+
+  netherlands:
+    name: "オランダ"
+    suffix: ".AS"
+    currency: "EUR"
+    exchange: "Euronext Amsterdam"
+    sample_tickers:
+      - "ASML.AS"   # ASML Holding
+      - "HEIA.AS"   # Heineken
+      - "UNA.AS"    # Unilever
+      - "INGA.AS"   # ING Group
+      - "PHIA.AS"   # Philips
+
+  sweden:
+    name: "スウェーデン"
+    suffix: ".ST"
+    currency: "SEK"
+    exchange: "Stockholm Stock Exchange"
+    sample_tickers:
+      - "VOLV-B.ST"  # Volvo
+      - "ERIC-B.ST"  # Ericsson
+      - "SWED-A.ST"  # Swedbank
+      - "ATCO-A.ST"  # Atlas Copco
+
+  spain:
+    name: "スペイン"
+    suffix: ".MC"
+    currency: "EUR"
+    exchange: "Bolsa de Madrid"
+    sample_tickers:
+      - "SAN.MC"    # Banco Santander
+      - "ITX.MC"    # Inditex (Zara)
+      - "BBVA.MC"   # BBVA
+      - "IBE.MC"    # Iberdrola
+      - "TEF.MC"    # Telefónica
+
+  italy:
+    name: "イタリア"
+    suffix: ".MI"
+    currency: "EUR"
+    exchange: "Borsa Italiana"
+    sample_tickers:
+      - "ENI.MI"    # ENI
+      - "ENEL.MI"   # Enel
+      - "UCG.MI"    # UniCredit
+      - "ISP.MI"    # Intesa Sanpaolo
+      - "LUX.MI"    # Luxottica
+
+  # ========== 北欧・北米その他 ==========
+
+  canada:
+    name: "カナダ"
+    suffix: ".TO"
+    currency: "CAD"
+    exchange: "Toronto Stock Exchange"
+    sample_tickers:
+      - "RY.TO"     # Royal Bank of Canada
+      - "TD.TO"     # Toronto-Dominion Bank
+      - "ENB.TO"    # Enbridge
+      - "CNR.TO"    # Canadian National Railway
+      - "BMO.TO"    # Bank of Montreal
+      - "SU.TO"     # Suncor Energy
+      - "BNS.TO"    # Bank of Nova Scotia
+
+  australia:
+    name: "オーストラリア"
+    suffix: ".AX"
+    currency: "AUD"
+    exchange: "Australian Securities Exchange"
+    sample_tickers:
+      - "CBA.AX"    # Commonwealth Bank
+      - "BHP.AX"    # BHP Group
+      - "CSL.AX"    # CSL Limited
+      - "WBC.AX"    # Westpac Banking
+      - "ANZ.AX"    # ANZ Bank
+      - "NAB.AX"    # National Australia Bank
+      - "WES.AX"    # Wesfarmers
+      - "RIO.AX"    # Rio Tinto
+
+  new_zealand:
+    name: "ニュージーランド"
+    suffix: ".NZ"
+    currency: "NZD"
+    exchange: "New Zealand Stock Exchange"
+    sample_tickers:
+      - "AIR.NZ"    # Air New Zealand
+      - "ATM.NZ"    # a2 Milk
+      - "FPH.NZ"    # Fisher & Paykel Healthcare
+
+  # ========== 中東・アフリカ ==========
+
+  saudi_arabia:
+    name: "サウジアラビア"
+    suffix: ".SR"
+    currency: "SAR"
+    exchange: "Saudi Exchange (Tadawul)"
+    sample_tickers:
+      - "2222.SR"   # Saudi Aramco
+      - "1180.SR"   # Al Rajhi Bank
+      - "2010.SR"   # Saudi Basic Industries
+
+  south_africa:
+    name: "南アフリカ"
+    suffix: ".JO"
+    currency: "ZAR"
+    exchange: "Johannesburg Stock Exchange"
+    sample_tickers:
+      - "NPN.JO"    # Naspers
+      - "SOL.JO"    # Sasol
+      - "ANG.JO"    # AngloGold Ashanti
+      - "BHP.JO"    # BHP Group
+
+  # ========== 中南米 ==========
+
+  brazil:
+    name: "ブラジル"
+    suffix: ".SA"
+    currency: "BRL"
+    exchange: "B3 (Bolsa Brasil Balcão)"
+    sample_tickers:
+      - "VALE3.SA"  # Vale
+      - "PETR4.SA"  # Petrobras
+      - "ITUB4.SA"  # Itaú Unibanco
+      - "BBDC4.SA"  # Bradesco
+      - "ABEV3.SA"  # Ambev
+
+  mexico:
+    name: "メキシコ"
+    suffix: ".MX"
+    currency: "MXN"
+    exchange: "Bolsa Mexicana de Valores"
+    sample_tickers:
+      - "AMXL.MX"   # América Móvil
+      - "WALMEX.MX" # Walmart de México
+      - "FEMSAUBD.MX" # FEMSA
+
+# デフォルトリージョン設定
+defaults:
+  primary_regions:
+    - japan
+    - us
+    - hong_kong
+  screening_limit: 20
+  cache_ttl_hours: 24
