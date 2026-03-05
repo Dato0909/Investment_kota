@@ -1,0 +1,265 @@
+# 投資戦略スクリーニングプリセット (15戦略)
+# 各プリセットはスクリーニング条件の閾値を定義します
+
+presets:
+
+  # --- バリュー系 ---
+
+  value:
+    name: "バリュー投資"
+    description: "低PER・低PBRの割安株を発掘"
+    filters:
+      per_max: 15.0
+      pbr_max: 1.5
+      roe_min: 8.0
+      debt_ratio_max: 0.6
+      market_cap_min_billion: 10
+    scoring:
+      per_weight: 0.3
+      pbr_weight: 0.3
+      roe_weight: 0.2
+      dividend_weight: 0.1
+      momentum_weight: 0.1
+
+  deep_value:
+    name: "ディープバリュー"
+    description: "極めて低評価の超割安株（ネットネット株含む）"
+    filters:
+      per_max: 10.0
+      pbr_max: 0.8
+      roe_min: 0.0
+      debt_ratio_max: 0.5
+      market_cap_min_billion: 5
+    scoring:
+      per_weight: 0.4
+      pbr_weight: 0.4
+      roe_weight: 0.1
+      dividend_weight: 0.05
+      momentum_weight: 0.05
+
+  quality_value:
+    name: "クオリティバリュー"
+    description: "高ROE・高利益率の優良企業を割安で取得"
+    filters:
+      per_max: 20.0
+      pbr_max: 3.0
+      roe_min: 15.0
+      profit_margin_min: 0.1
+      debt_ratio_max: 0.5
+      market_cap_min_billion: 50
+    scoring:
+      per_weight: 0.2
+      pbr_weight: 0.2
+      roe_weight: 0.35
+      dividend_weight: 0.1
+      momentum_weight: 0.15
+
+  # --- 配当系 ---
+
+  high_dividend:
+    name: "高配当"
+    description: "安定した高配当利回り銘柄"
+    filters:
+      dividend_yield_min: 0.03
+      dividend_yield_max: 0.12
+      payout_ratio_max: 0.8
+      debt_ratio_max: 0.6
+      market_cap_min_billion: 20
+    scoring:
+      per_weight: 0.1
+      pbr_weight: 0.1
+      roe_weight: 0.15
+      dividend_weight: 0.5
+      momentum_weight: 0.15
+
+  income:
+    name: "インカム"
+    description: "連続増配・安定配当の長期保有向け銘柄"
+    filters:
+      dividend_yield_min: 0.02
+      payout_ratio_max: 0.7
+      roe_min: 10.0
+      debt_ratio_max: 0.5
+      market_cap_min_billion: 100
+    scoring:
+      per_weight: 0.15
+      pbr_weight: 0.1
+      roe_weight: 0.25
+      dividend_weight: 0.4
+      momentum_weight: 0.1
+
+  # --- 成長系 ---
+
+  growth_value:
+    name: "成長割安 (GARP)"
+    description: "成長性と割安度を両立する銘柄"
+    filters:
+      per_max: 25.0
+      pbr_max: 3.0
+      revenue_growth_min: 0.05
+      roe_min: 12.0
+      debt_ratio_max: 0.55
+      market_cap_min_billion: 30
+    scoring:
+      per_weight: 0.2
+      pbr_weight: 0.15
+      roe_weight: 0.25
+      dividend_weight: 0.1
+      momentum_weight: 0.3
+
+  small_cap_value:
+    name: "小型バリュー"
+    description: "時価総額300億円以下の小型割安株"
+    filters:
+      per_max: 12.0
+      pbr_max: 1.2
+      roe_min: 5.0
+      debt_ratio_max: 0.5
+      market_cap_min_billion: 3
+      market_cap_max_billion: 300
+    scoring:
+      per_weight: 0.35
+      pbr_weight: 0.35
+      roe_weight: 0.15
+      dividend_weight: 0.1
+      momentum_weight: 0.05
+
+  # --- リスク管理系 ---
+
+  defensive:
+    name: "ディフェンシブ"
+    description: "景気変動に強い安定銘柄（食品・医薬・インフラ等）"
+    filters:
+      per_max: 25.0
+      pbr_max: 3.0
+      beta_max: 0.8
+      debt_ratio_max: 0.5
+      dividend_yield_min: 0.015
+      market_cap_min_billion: 200
+    scoring:
+      per_weight: 0.2
+      pbr_weight: 0.15
+      roe_weight: 0.2
+      dividend_weight: 0.3
+      momentum_weight: 0.15
+
+  turnaround:
+    name: "ターンアラウンド"
+    description: "業績回復途上の割安銘柄（リカバリー投資）"
+    filters:
+      per_max: 20.0
+      pbr_max: 1.5
+      roe_min: 0.0
+      revenue_growth_min: -0.05
+      market_cap_min_billion: 10
+    scoring:
+      per_weight: 0.3
+      pbr_weight: 0.3
+      roe_weight: 0.1
+      dividend_weight: 0.05
+      momentum_weight: 0.25
+
+  # --- モメンタム系 ---
+
+  momentum_value:
+    name: "モメンタムバリュー"
+    description: "割安かつ価格上昇トレンドにある銘柄"
+    filters:
+      per_max: 18.0
+      pbr_max: 2.0
+      roe_min: 8.0
+      momentum_3m_min: 0.0
+      market_cap_min_billion: 20
+    scoring:
+      per_weight: 0.2
+      pbr_weight: 0.2
+      roe_weight: 0.15
+      dividend_weight: 0.1
+      momentum_weight: 0.35
+
+  # --- セクター系 ---
+
+  sector_tech:
+    name: "テクノロジー割安"
+    description: "IT・テクノロジーセクターの割安成長株"
+    filters:
+      per_max: 30.0
+      pbr_max: 5.0
+      roe_min: 10.0
+      revenue_growth_min: 0.08
+      debt_ratio_max: 0.5
+      market_cap_min_billion: 100
+    sectors: ["Technology", "Communication Services"]
+    scoring:
+      per_weight: 0.15
+      pbr_weight: 0.1
+      roe_weight: 0.3
+      dividend_weight: 0.05
+      momentum_weight: 0.4
+
+  sector_finance:
+    name: "金融セクター割安"
+    description: "銀行・保険・証券の低PBR割安株"
+    filters:
+      per_max: 15.0
+      pbr_max: 1.0
+      roe_min: 6.0
+      dividend_yield_min: 0.025
+      market_cap_min_billion: 100
+    sectors: ["Financials"]
+    scoring:
+      per_weight: 0.25
+      pbr_weight: 0.35
+      roe_weight: 0.15
+      dividend_weight: 0.2
+      momentum_weight: 0.05
+
+  sector_energy:
+    name: "エネルギー割安"
+    description: "エネルギー・資源セクターの割安高配当株"
+    filters:
+      per_max: 12.0
+      pbr_max: 1.5
+      roe_min: 8.0
+      dividend_yield_min: 0.03
+      market_cap_min_billion: 50
+    sectors: ["Energy", "Materials"]
+    scoring:
+      per_weight: 0.25
+      pbr_weight: 0.2
+      roe_weight: 0.15
+      dividend_weight: 0.3
+      momentum_weight: 0.1
+
+  sector_healthcare:
+    name: "ヘルスケア割安"
+    description: "医薬品・医療機器の安定割安株"
+    filters:
+      per_max: 22.0
+      pbr_max: 3.0
+      roe_min: 10.0
+      debt_ratio_max: 0.5
+      market_cap_min_billion: 100
+    sectors: ["Healthcare"]
+    scoring:
+      per_weight: 0.2
+      pbr_weight: 0.15
+      roe_weight: 0.3
+      dividend_weight: 0.2
+      momentum_weight: 0.15
+
+  global_value:
+    name: "グローバルバリュー"
+    description: "全世界60地域から割安株を幅広く選定"
+    filters:
+      per_max: 15.0
+      pbr_max: 1.5
+      roe_min: 8.0
+      debt_ratio_max: 0.6
+      market_cap_min_billion: 50
+    scoring:
+      per_weight: 0.3
+      pbr_weight: 0.3
+      roe_weight: 0.2
+      dividend_weight: 0.1
+      momentum_weight: 0.1
